@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import {getEquppedImages} from './request'
+
+const characterId = '2305843009300358704'
 
 function App() {
   return (
