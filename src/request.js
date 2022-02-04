@@ -91,23 +91,33 @@ export async function getEquppedImages(characterId) {
     const equippedItemsObj = {
       name: parsedData.displayProperties.name,
       imageUrl: parsedData.displayProperties.icon,
-      itemTypeDisplayName: parsedData.itemTypeDisplayName,
-      sockets: parsedData?.sockets,
-      socketEntries: parsedData?.sockets?.socketEntries,
-      perks: parsedData.perks,
-      traitIds: parsedData.traitIds,
-      traitHashes: parsedData.traitHashes,
-      hash: parsedData.hash,
-      tierTypeName: parsedData.inventory.tierTypeName,
-      stats: parsedData.stats.stats,
+      // itemTypeDisplayName: parsedData.itemTypeDisplayName,
+      // sockets: parsedData?.sockets,
+      // socketEntries: parsedData?.sockets?.socketEntries,
+      // perks: parsedData.perks,
+      // traitIds: parsedData.traitIds,
+      // traitHashes: parsedData.traitHashes,
+      // hash: parsedData.hash,
+      // tierTypeName: parsedData.inventory.tierTypeName,
+      // stats: parsedData.stats.stats,
     };
 
     return equippedItemsObj;
   });
-  console.log(parsedResult);
-  // const fullImageUrls = parsedResult.map(el => `https://www.bungie.net/${el}`)
-  // console.log(fullImageUrls)
   closeDB(db);
+  return parsedResult;
+  // console.log(parsedResult);
+  // const fullImageUrls = parsedResult.map(
+  //   (el) => `https://www.bungie.net/${el}`
+  // );
+  // console.log(fullImageUrls)
 }
 
-// getEquppedImages(characterId);
+// getEquppedImages(characterId).then((res) => {
+//   let imageUrls = [];
+//   for (let el of res) {
+//     const fullUrl = `https://www.bungie.net/${el.imageUrl}`;
+//     imageUrls.push(fullUrl);
+//   }
+//   console.log(imageUrls);
+// });

@@ -1,14 +1,15 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
-// import {getEquppedImages} from './request.js'
+import EquippedItems from "./EquippedItems";
+import { getEquppedImages } from "./request.js";
 
-// const characterId = '2305843009300358704';
+const characterId = "2305843009300358704";
 // (async function(){
 //   const equippedItems = await getEquppedImages(characterId);
 //   console.log(equippedItems)
 // })()
 
-const urlArray = [
+const imageUrls = [
   "https://www.bungie.net//common/destiny2_content/icons/67634d7a01d7dca3aef90b4612d58489.jpg",
   "https://www.bungie.net//common/destiny2_content/icons/e2184277170b7a5f507f817c2b02fdff.jpg",
   "https://www.bungie.net//common/destiny2_content/icons/cf904cc81fd091ca5ea4db8af0a8f0db.jpg",
@@ -28,39 +29,46 @@ const urlArray = [
   "https://www.bungie.net//common/destiny2_content/icons/33889853c541385911162e4ad8c88ad3.jpg",
 ];
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* <ul>${images}</ul> */}
-        {/* <img src={images} alt="Equipped Item"></img>; */}
-        {urlArray.map((imgSrc, index) => (
-          <img
-            src={imgSrc}
-            key={index}
-            alt="Make sure to include a alt tag, because react might throw an error at build"
-          />
-        ))}
-        {/* <EquippedItems imageUrl={urlArray[0]}/>
-        <EquippedItems imageUrl={urlArray[1]}/>
-        <EquippedItems imageUrl={urlArray[2]}/>
-        <EquippedItems imageUrl={urlArray[3]}/>
-        <EquippedItems imageUrl={urlArray[4]}/> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// function App() {
+//   return (
+//     <div className="App">
+//       <EquippedItems urlArray={equipmentUrlArray} />
+//     </div>
+//   );
+// }
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { equipmentUrlArray: null };
+  }
+
+  // async componentDidMount() {
+  //   const res = await getEquppedImages(characterId);
+  //   let imageUrls = [];
+  //   for (let el of res) {
+  //     const fullUrl = `https://www.bungie.net/${el.imageUrl}`;
+  //     imageUrls.push(fullUrl);
+  //   }
+  //   this.setState(imageUrls);
+  // }
+  render() {
+    // getEquppedImages(characterId).then((res) => {
+    // let imageUrls = [];
+    // for (let el of res) {
+    //   const fullUrl = `https://www.bungie.net/${el.imageUrl}`;
+    //   imageUrls.push(fullUrl);
+    // }
+    // this.setState(imageUrls);
+    // });
+    // const equipmentUrlArray = imageUrls;
+    // this.setState(equipmentUrlArray);
+    return (
+      <div className="App">
+        <EquippedItems urlArray={imageUrls} />
+      </div>
+    );
+  }
 }
 
 export default App;
