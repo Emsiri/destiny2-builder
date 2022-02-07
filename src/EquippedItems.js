@@ -1,15 +1,15 @@
 function EquippedItems(props) {
-  return (
-    <div>
-      {props.urlArray.map((imgSrc, index) => (
-        <img
-          src={imgSrc}
-          key={index}
-          alt="Make sure to include a alt tag, because react might throw an error at build"
-        />
-      ))}
-    </div>
-  );
+  if (props.urlArray === null) {
+    return <h1>Loading...</h1>;
+  } else {
+    return (
+      <div>
+        {props.urlArray.map((imgSrc, index) => (
+          <img src={imgSrc} key={index} alt="Equipped items" />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default EquippedItems;
