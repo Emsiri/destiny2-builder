@@ -20,9 +20,14 @@ class App extends React.Component {
     this.setState({ equipmentUrlArray });
   }
   render() {
+    const equipmentUrlArray = this.state.equipmentUrlArray;
     return (
       <div className="App">
-        <EquippedItems urlArray={this.state.equipmentUrlArray} />
+        {equipmentUrlArray ? (
+          <EquippedItems urlArray={this.state.equipmentUrlArray} />
+        ) : (
+          <h1 style={{ color: "white" }}>Loading...</h1>
+        )}
       </div>
     );
   }

@@ -4,7 +4,7 @@ const dbName = "world_sql_content_3d029e66883b2c5765b6e4848f1c2965.db";
 
 export async function openDb() {
   return open({
-    filename: `./db/${dbName}`,
+    filename: `../db/${dbName}`,
     driver: sqlite3.Database,
   });
 }

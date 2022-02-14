@@ -1,0 +1,76 @@
+{
+    displayProperties: {
+      description: 'The needle guides the thread to a goal and strips obstacles from the path.',
+      name: "Wayfinder's Compass",
+      icon: '/common/destiny2_content/icons/33889853c541385911162e4ad8c88ad3.jpg',
+      hasIcon: true
+    },
+    tooltipNotifications: [ [Object] ],
+    backgroundColor: { colorHash: 0, red: 0, green: 0, blue: 0, alpha: 0 },
+    screenshot: '/common/destiny2_content/screenshots/3799750641.jpg',
+    itemTypeDisplayName: 'Artifact',
+    flavorText: '',
+    uiItemDisplayStyle: '',
+    itemTypeAndTierDisplayName: 'Legendary Artifact',
+    displaySource: '',
+    inventory: {
+      stackUniqueLabel: 'seasons.season15.artifacts.legendary.artifact0',
+      maxStackSize: 1,
+      bucketTypeHash: 1506418338,
+      recoveryBucketTypeHash: 215593132,
+      tierTypeHash: 4008398120,
+      isInstanceItem: true,
+      nonTransferrableOriginal: false,
+      tierTypeName: 'Legendary',
+      tierType: 5,
+      expirationTooltip: '',
+      expiredInActivityMessage: '',
+      expiredInOrbitMessage: '',
+      suppressExpirationWhenObjectivesComplete: true
+    },
+    stats: {
+      disablePrimaryStatDisplay: false,
+      stats: [Object],
+      hasDisplayableStats: false,
+      primaryBaseStatHash: 3289069874
+    },
+    equippingBlock: {
+      uniqueLabelHash: 0,
+      equipmentSlotTypeHash: 1506418338,
+      attributes: 1,
+      equippingSoundHash: 0,
+      hornSoundHash: 0,
+      ammoType: 0,
+      displayStrings: []
+    },
+    preview: {
+      screenStyle: 'screen_style_seasonal_artifact',
+      previewVendorHash: 2894222926,
+      previewActionString: 'Preview',
+      derivedItemCategories: [Array]
+    },
+    acquireRewardSiteHash: 0,
+    acquireUnlockHash: 0,
+    gearset: { trackingValueMax: 0, itemList: [Array] },
+    investmentStats: [ [Object] ],
+    perks: [],
+    loreHash: 865855100,
+    allowActions: true,
+    doesPostmasterPullHaveSideEffects: false,
+    nonTransferrable: true,
+    itemCategoryHashes: [],
+    specialItemType: 0,
+    itemType: 0,
+    itemSubType: 0,
+    classType: 3,
+    breakerType: 0,
+    equippable: true,
+    defaultDamageType: 0,
+    seasonHash: 2809059428,
+    isWrapper: false,
+    hash: 3799750641,
+    index: 1765,
+    redacted: false,
+    blacklisted: false
+  }
+]

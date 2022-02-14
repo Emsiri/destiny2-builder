@@ -15,7 +15,7 @@ const inventory = 205;
 
 const url = `${baseUrl}${getCharacter}${queryParams}${inventory}`;
 
-async function returnData(apiKey, url) {
+export async function returnData(apiKey, url) {
   try {
     const res = await fetch(url, {
       method: "GET",
@@ -34,7 +34,7 @@ async function returnData(apiKey, url) {
   }
 }
 
-async function getEquipmentFromChar(characterId) {
+export async function getEquipmentFromChar(characterId) {
   let { equipment } = await returnData(
     apiKey,
     `${baseUrl}${getCharacter}${queryParams}${inventory}`

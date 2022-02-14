@@ -1,0 +1,31 @@
+{
+  "name": "server",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emsiri/destiny2-builder.git"
+  },
+  "author": "Brad Forrest",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emsiri/destiny2-builder/issues"
+  },
+  "homepage": "https://github.com/Emsiri/destiny2-builder#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "node-fetch": "^3.2.0",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
