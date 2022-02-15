@@ -23,12 +23,13 @@ export async function returnData(apiKey, url) {
         "X-API-Key": apiKey,
       },
     });
-    const data = await res.json();
+    const { Response } = await res.json();
 
     if (!res.ok) {
       throw new Error(`Error with request ${data.message}`);
     }
-    return data.Response;
+    console.log(Response);
+    return Response;
   } catch (err) {
     console.log(err);
   }
