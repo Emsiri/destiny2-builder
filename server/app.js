@@ -2,15 +2,15 @@ import { getEquippedImages } from "./request.js";
 import express from "express";
 import cors from "cors";
 const app = express();
-const characterId = "2305843009300358704";
 
 app.use(cors());
-
-app.get("/equipped", async (req, res) => {
-  const data = await getEquippedImages(characterId);
-  res.send(data);
+app.get(`/v1/equipped/:characterId`, async (req, res) => {
+  const data = await getEquippedImages(req.params.characterId);
+  res.json({
+    statusMessage: "Ok",
+    length: data.length,
+    data,
+  });
 });
-
-// module.exports = app;
 
 export default app;

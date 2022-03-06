@@ -3,17 +3,17 @@ import { openDb, closeDB, queryManifest } from "./manifest.js";
 const membershipType = `3`;
 const displayName = "Emsiri%230594";
 const destinyMembershipId = "4611686018468712969";
-const characterId = "2305843009300358704";
+// const characterId = "2305843009300358704";
 
 const apiKey = process.env.apiKey;
 const baseUrl = `https://www.bungie.net/platform`;
 const searchDestinyPlayer = `/Destiny2/SearchDestinyPlayer/${membershipType}/${displayName}/`;
-const getCharacter = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/Character/${characterId}`;
 const getProfile = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/`;
+// const getCharacter = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/Character/${characterId}`;
 const queryParams = `?components=`;
 const inventory = 205;
 
-const url = `${baseUrl}${getCharacter}${queryParams}${inventory}`;
+// const url = `${baseUrl}${getCharacter}${queryParams}${inventory}`;
 
 export async function returnData(apiKey, url) {
   try {
@@ -28,7 +28,7 @@ export async function returnData(apiKey, url) {
     if (!res.ok) {
       throw new Error(`Error with request ${data.message}`);
     }
-    console.log(Response);
+    // console.log(Response);
     return Response;
   } catch (err) {
     console.log(err);
@@ -36,6 +36,7 @@ export async function returnData(apiKey, url) {
 }
 
 export async function getEquipmentFromChar(characterId) {
+  const getCharacter = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/Character/${characterId}`;
   let { equipment } = await returnData(
     apiKey,
     `${baseUrl}${getCharacter}${queryParams}${inventory}`
