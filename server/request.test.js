@@ -2,22 +2,23 @@ import {
   returnData,
   getEquipmentFromChar,
   getEquippedImages,
+  getCharacterIDs,
 } from "./request.js";
 
 const membershipType = `3`;
 const displayName = "Emsiri%230594";
-const destinyMembershipId = "4611686018468712969";
+const membershipID = "4611686018468712969";
 const characterId = "2305843009300358704";
 
 const apiKey = process.env.apiKey;
 const baseUrl = `https://www.bungie.net/platform`;
 const searchDestinyPlayer = `/Destiny2/SearchDestinyPlayer/${membershipType}/${displayName}/`;
-const getProfile = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/`;
+const getProfile = `/Destiny2/${membershipType}/Profile/${membershipID}/`;
 const queryParams = `?components=`;
 const inventory = 205;
 
 test("Check returnData", async () => {
-  const getCharacter = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/Character/${characterId}`;
+  const getCharacter = `/Destiny2/${membershipType}/Profile/${membershipID}/Character/${characterId}`;
   const res = await returnData(
     apiKey,
     `${baseUrl}${getCharacter}${queryParams}${inventory}`
@@ -28,7 +29,7 @@ test("Check returnData", async () => {
 
 test("Check returnData throws an error", async () => {
   const characterId = "xxxxx";
-  const getCharacter = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/Character/${characterId}`;
+  const getCharacter = `/Destiny2/${membershipType}/Profile/${membershipID}/Character/${characterId}`;
   try {
     const res = await returnData(
       apiKey,
@@ -50,26 +51,25 @@ test("Check getEquippedImages returns the equipped image urls", async () => {
 });
 
 test("Check getVaultItems returns the profile vault", async () => {
-  const res = await getVaultItems(membershipId);
+  const res = await getVaultItems(membershipID);
   expect(res.Message).toBe("Ok");
 });
 
-test("Check getProfile returns memberShipID", async () => {
+test("Check getProfile returns membershipID", async () => {
   const res = await getCharacterIDs(displayName);
   expect(res.length).toBe(1);
   expect(res.Message).toBe("Ok");
-  expect(res.Response.membershipId).toBe(membershipId);
+  expect(res.Response.membershipID).toBe(membershipID);
 });
 
 test("Check getProfile returns characters", async () => {
-  const res = await getCharacterIDs(membershipId);
+  const res = await getCharacterIDs(membershipID);
   const characterIds = [
     "2305843009300358704",
     "2305843009300358823",
     "2305843009379706723",
   ];
-  expect(res.Message).toBe("Ok");
-  expect(res.length).toBe(1);
-  expect(res.Response.profile.data.characterIds.length).toBe(3);
-  expect(res.Response.profile.data.characterIds).toMatchObject(characterIds);
+  // expect(res.length).toBe(1);
+  expect(res.profile.data.characterIds.length).toBe(3);
+  expect(res.profile.data.characterIds).toMatchObject(characterIds);
 });

@@ -2,16 +2,16 @@ import fetch from "node-fetch";
 import { openDb, closeDB, queryManifest } from "./manifest.js";
 const membershipType = `3`;
 const displayName = "Emsiri%230594";
-const destinyMembershipId = "4611686018468712969";
+const membershipID = "4611686018468712969";
 // const characterId = "2305843009300358704";
 
 const apiKey = process.env.apiKey;
 const baseUrl = `https://www.bungie.net/platform`;
 const searchDestinyPlayer = `/Destiny2/SearchDestinyPlayer/${membershipType}/${displayName}/`;
-const getProfile = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/`;
-// const getCharacter = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/Character/${characterId}`;
+// const getCharacter = `/Destiny2/${membershipType}/Profile/${membershipID}/Character/${characterId}`;
 const queryParams = `?components=`;
 const inventory = 205;
+const profiles = 100;
 
 // const url = `${baseUrl}${getCharacter}${queryParams}${inventory}`;
 
@@ -36,7 +36,7 @@ export async function returnData(apiKey, url) {
 }
 
 export async function getEquipmentFromChar(characterId) {
-  const getCharacter = `/Destiny2/${membershipType}/Profile/${destinyMembershipId}/Character/${characterId}`;
+  const getCharacter = `/Destiny2/${membershipType}/Profile/${membershipID}/Character/${characterId}`;
   let { equipment } = await returnData(
     apiKey,
     `${baseUrl}${getCharacter}${queryParams}${inventory}`
@@ -77,6 +77,18 @@ export async function getEquippedImages(characterId) {
   });
   closeDB(db);
   return parsedResult;
+}
+
+export async function getCharacterIDs(membershipID) {
+  const getProfileUrl = `/Destiny2/${membershipType}/Profile/${membershipID}/`;
+  let res = await returnData(
+    apiKey,
+    `${baseUrl}${getProfileUrl}${queryParams}${profiles}`
+  );
+  // return Response.profile.data.characterIds;
+  console.log(res);
+  return res;
+  // console.log();
 }
 
 // getEquippedImages(characterId);
