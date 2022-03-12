@@ -28,10 +28,10 @@ export async function returnData(apiKey, url) {
     if (!res.ok) {
       throw new Error(`Error with request ${data.message}`);
     }
-    // console.log(Response);
+    Response.status = "ok";
     return Response;
   } catch (err) {
-    console.log(err);
+    throw new Error(`Error with request`, err);
   }
 }
 
