@@ -1,6 +1,6 @@
 import React from "react";
 import CharacterButton from "./CharacterButton";
-const memberShipID = "4611686018468712969";
+const membershipId = "4611686018468712969";
 
 class CharacterContainer extends React.Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class CharacterContainer extends React.Component {
   }
 
   async componentDidMount() {
-    const res = await fetch(`http://localhost:3001/v1/profile/${memberShipID}`);
+    const res = await fetch(`http://localhost:3001/v1/profile/${membershipId}`);
     console.log(`res of characterId is `, res);
     const response = await res.json();
     const characterIds = response.Data;
