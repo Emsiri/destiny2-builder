@@ -1,9 +1,9 @@
 name: Test CI
-on: 
+on:
   workflow_dispatch:
     inputs:
       env:
-        description: 'trigger'
+        description: "trigger"
         required: false
   pull_request:
     branches: [master]
@@ -22,9 +22,7 @@ jobs:
           npm ci
           npm run test:coverage
         working-directory: ./server
-    name: codacy-coverage-reporter
-    steps:
-      - uses: actions/checkout@v2
+
       - name: Run codacy-coverage-reporter
         uses: codacy/codacy-coverage-reporter-action@v1
         with:
