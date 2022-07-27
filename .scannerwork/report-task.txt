@@ -1,0 +1,6 @@
+projectKey=destiny2-builder
+serverUrl=http://localhost:9000
+serverVersion=9.5.0.56709
+dashboardUrl=http://localhost:9000/dashboard?id=destiny2-builder
+ceTaskId=AYIOf4vwHzbT74GCHXC0
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYIOf4vwHzbT74GCHXC0

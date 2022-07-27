@@ -6,6 +6,7 @@
   "main": "server.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
     "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "start": "nodemon server.js"
   },
@@ -18,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/Emsiri/destiny2-builder/issues"
   },
+  "jest": {
+    "transform": {}
+  },
   "homepage": "https://github.com/Emsiri/destiny2-builder#readme",
   "dependencies": {
     "cors": "^2.8.5",
@@ -28,8 +32,10 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
+    "axios": "^0.27.2",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "fetch-mock": "^9.11.0",
     "jest": "^27.5.1",
     "superagent": "^7.1.1",
     "supertest": "^6.2.2"

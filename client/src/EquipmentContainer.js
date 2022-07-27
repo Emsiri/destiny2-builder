@@ -1,5 +1,6 @@
 import React from "react";
 import EquippedItems from "./EquippedItems";
+import "./EquipmentContainer.css";
 
 class EquipmentContainer extends React.Component {
   constructor(props) {
@@ -13,12 +14,9 @@ class EquipmentContainer extends React.Component {
 
   async componentDidMount() {
     const res = await fetch(
-      `http://localhost:3001/v1/equipped/${this.state.characterId}`
+      `http://localhost:3001/v1/equippedImages/${this.state.characterId}`
     );
-    // console.log(`res is `, res);
-    // const { data } = await res.json();
     const response = await res.json();
-    console.log(response);
     let equipmentUrlArray = [];
     for (let el of response.data) {
       const fullUrl = `https://www.bungie.net${el.imageUrl}`;
@@ -30,11 +28,17 @@ class EquipmentContainer extends React.Component {
   render() {
     const equipmentUrlArray = this.state.equipmentUrlArray;
     return (
-      <div className="App">
+      <div className="equipped-images-container">
         {equipmentUrlArray ? (
           <EquippedItems urlArray={this.state.equipmentUrlArray} />
         ) : (
-          <h1 style={{ color: "white" }}>Loading...</h1>
+          <h1
+            style={{ color: "white" }}
+            className="loading-header"
+            data-testid="loading-header"
+          >
+            Loading...
+          </h1>
         )}
       </div>
     );

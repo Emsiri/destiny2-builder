@@ -47,6 +47,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.4",
+    "msw": "^0.39.2",
     "webpack-node-externals": "^3.0.0"
   },
   "jest": {
