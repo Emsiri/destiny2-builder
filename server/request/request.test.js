@@ -6,7 +6,7 @@ import {
 } from "./request.js";
 // import { sendRequest } from "../http/http.js";
 import { sendRequest } from "../http/__mocks__/http.js";
-import { jest } from "@jest/globals";
+// import { jest } from "@jest/globals";
 import { getEquippedImages } from "../getEquippedImages";
 
 const membershipType = `3`;

@@ -1,6 +1,6 @@
 import sqlite3 from "sqlite3";
 import { open } from "sqlite";
-const dbName = "world_sql_content_732816fb253133e093499c7709e9d9be.sqlite3";
+const dbName = "world_sql_content_dce16284390bc8c207e1ffc745927a59.sqlite3";
 
 export async function openDb() {
   return open({

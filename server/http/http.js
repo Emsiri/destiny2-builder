@@ -1,17 +1,16 @@
-import fetch from "node-fetch";
+import axios from "axios";
 
 const sendRequest = async function (apiKey, url) {
   try {
-    const res = await fetch(url, {
-      method: "GET",
+    const response = axios.get(url, {
       headers: {
         "X-API-Key": apiKey,
       },
     });
-    const { Response } = await res.json();
-    return Response;
+    console.log(response);
+    return response;
   } catch (err) {
-    throw new Error(`Error with base request fetch ${err.message}`);
+    throw new Error(`Error with the request ${err.message}`);
   }
 };
 export { sendRequest };

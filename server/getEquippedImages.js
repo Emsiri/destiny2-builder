@@ -5,8 +5,9 @@ import { getEquipmentFromChar } from "./request/request.js";
 export async function getEquippedImages(httpClient, characterId) {
   try {
     const db = await openDb();
-    const data = await getEquipmentFromChar(httpClient, characterId);
-    const equippedItemsHashes = parseEquippedItems(data);
+    const { data } = await getEquipmentFromChar(httpClient, characterId);
+    console.log("Data is: ", data);
+    const equippedItemsHashes = parseEquippedItems(data.Response);
     const resultArray = await Promise.all(
       equippedItemsHashes.map(async (hash) =>
         queryManifest(db, "DestinyInventoryItemDefinition", hash)
